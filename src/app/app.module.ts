@@ -7,8 +7,11 @@ import { AppComponent } from './app.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { RecipeComponent } from './components/recipe/recipe.component';
-import {RecipeService} from './services/recipe.service';
+import { RecipeService } from './services/recipe.service';
 import { HomeComponent } from './components/home/home.component';
+import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
+import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,12 +20,15 @@ import { HomeComponent } from './components/home/home.component';
     RecipesComponent,
     NavigationComponent,
     RecipeComponent,
-    HomeComponent
+    HomeComponent,
+    AddRecipeComponent,
+    RecipeDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [RecipeService],
   bootstrap: [AppComponent]

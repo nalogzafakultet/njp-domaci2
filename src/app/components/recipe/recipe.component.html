@@ -1,9 +1,8 @@
-<p>
-  Naziv: {{recept.naziv}}
-</p>
-
-<p>
-  Opis: {{recept.opis}}
-</p>
-
-<p *ngFor="let proizvod of recept.proizvodi">{{proizvod.id}} | {{proizvod.naziv}}</p>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="http://placehold.jp/286x180.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{recept.naziv}}</h5>
+    <p class="card-text">{{recept.opis}}</p>
+    <a routerLink="/recipe/details/{{recept.id}}" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
