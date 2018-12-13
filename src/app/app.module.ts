@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { RecipeComponent } from './components/recipe/recipe.component';
+import {RecipeService} from './services/recipe.service';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -14,14 +16,15 @@ import { RecipeComponent } from './components/recipe/recipe.component';
     AppComponent,
     RecipesComponent,
     NavigationComponent,
-    RecipeComponent
+    RecipeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
