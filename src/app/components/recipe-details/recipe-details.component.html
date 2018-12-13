@@ -1,24 +1,56 @@
-<h2>Recept details</h2>
 
 
-<div *ngIf="recept">
+<div class="row">
 
-    <div class="form-group">
-      <label for="exampleInputEmail1">Naziv:</label>
-      <input type="text" class="form-control" [(ngModel)]="recept.naziv" id="exampleInputEmail1" [disabled]="!editMode">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  <div *ngIf="recept" class="col-md-6">
+
+    <div class="form-wrapper">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Naziv:</label>
+        <input type="text" class="form-control" [(ngModel)]="recept.naziv" id="exampleInputEmail1" [disabled]="!editMode">
+      </div>
+      <div class="form-group">
+        <label for="opis">Opis</label>
+        <input type="textarea" class="form-control" id="opis" placeholder="Opis" [(ngModel)]="recept.opis" [disabled]="!editMode">
+      </div>
+
+      <h4>Sastojci:</h4>
+      <ul class="list-group">
+        <a
+          *ngFor="let proizvod of recept.proizvodi"
+          class="list-group-item"
+          (click)="obrisiSastojak(proizvod)"
+        >
+          {{proizvod.naziv}}
+        </a>
+      </ul>
+
+      <div class="button-space">
+        <div *ngIf="!editMode">
+          <button type="submit" class="btn btn-outline-info" (click)="toggleEdit()">Edit</button>
+        </div>
+        <div *ngIf="editMode">
+          <button type="text" class="btn btn-outline-success save-btn" (click)="saveRecept()">Save</button>
+          <button type="text" class="btn btn-outline-danger" (click)="toggleEdit()">Cancel</button>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="opis">Opis</label>
-      <input type="text" class="form-control" id="opis" placeholder="Opis" [(ngModel)]="recept.opis" [disabled]="!editMode">
+
+
+  </div>
+
+  <div *ngIf="editMode" class="offset-1 col-md-5">
+    <h4>Preostali sastojci:</h4>
+    <div class="products-wrapper">
+      <a
+        *ngFor="let proizvod of preostaliProizvodi"
+        class="list-group-item"
+        (click)="dodajSastojak(proizvod)"
+      >
+        {{proizvod.naziv}}
+      </a>
     </div>
-    <div *ngIf="!editMode">
-      <button type="submit" class="btn btn-outline-info" (click)="toggleEdit()">Edit</button>
-    </div>
-    <div *ngIf="editMode">
-      <button type="text" class="btn btn-outline-success">Save</button>
-      <button type="text" class="btn btn-outline-danger">Cancel</button>
-    </div>
+
+  </div>
 
 </div>
-

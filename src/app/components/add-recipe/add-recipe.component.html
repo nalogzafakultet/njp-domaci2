@@ -1,3 +1,44 @@
-<p>
-  add-recipe works!
-</p>
+<div class="container">
+
+  <h2>Add a new RECEPT</h2>
+
+  <div class="row">
+
+    <div class="form-wrapper col-md-6">
+
+      <div class="form-group">
+        <label for="naziv">Naziv</label>
+        <input type="text" class="form-control" id="naziv" placeholder="Unesite naziv" [(ngModel)]="naziv">
+      </div>
+      <div class="form-group">
+        <label for="opis">Password</label>
+        <input type="text" class="form-control" id="opis" placeholder="Opis" [(ngModel)]="opis">
+      </div>
+
+      <h4>Sastojci:</h4>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let proizvod of proizvodiZaRecept" (click)="removeProizvod(proizvod)">
+          {{proizvod.naziv}}
+        </li>
+      </ul>
+
+      <small class="text-danger">{{errorText}}</small>
+
+      <div class="form-group buttons-group">
+      <button type="submit" class="btn btn-success" (click)="sacuvajRecept()">Sacuvaj</button>
+      </div>
+      <button type="submit" class="btn btn-info" (click)="reset()">Reset</button>
+    </div>
+
+    <div class="offset-2 col-md-4">
+      <h4>Dostupni sastojci:</h4>
+      <ul class="list-group">
+        <li *ngFor="let proizvod of preostaliProizvodi" (click)="addProizvod(proizvod)" class="list-group-item">
+          {{proizvod.naziv}}
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+</div>

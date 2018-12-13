@@ -29,6 +29,7 @@ export class ProizvodiService {
   }
 
   getRemainingProizvodi(recept: Recept): Observable<Proizvod[]> {
+    console.log('sending: ', recept);
     return this.http.post<Proizvod[]>(GET_REMAINING_PROIZVODI, recept, httpOptions);
   }
 

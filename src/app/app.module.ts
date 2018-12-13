@@ -12,6 +12,8 @@ import { HomeComponent } from './components/home/home.component';
 import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
 import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
 import { FormsModule } from '@angular/forms';
+import { ProizvodiService } from './services/proizvodi.service';
+import { AddProizvodComponent } from './components/add-proizvod/add-proizvod.component';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     RecipeComponent,
     HomeComponent,
     AddRecipeComponent,
-    RecipeDetailsComponent
+    RecipeDetailsComponent,
+    AddProizvodComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,10 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule
   ],
-  providers: [RecipeService],
+  providers: [
+    RecipeService,
+    ProizvodiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

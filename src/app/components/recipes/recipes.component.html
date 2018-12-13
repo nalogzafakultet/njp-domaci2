@@ -1,5 +1,3 @@
-<p>
-  recipes works!
-</p>
-
-<app-recipe *ngFor="let recept of recepti" [rcpt]="recept"></app-recipe>
+<div class="row">
+  <app-recipe *ngFor="let recept of recepti" [rcpt]="recept" class="col-md-4"></app-recipe>
+</div>
