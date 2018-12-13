@@ -1,0 +1,9 @@
+<p>
+  Naziv: {{recept.naziv}}
+</p>
+
+<p>
+  Opis: {{recept.opis}}
+</p>
+
+<p *ngFor="let proizvod of recept.proizvodi">{{proizvod.id}} | {{proizvod.naziv}}</p>

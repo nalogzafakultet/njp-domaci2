@@ -1,5 +1,5 @@
 export class Proizvod {
-  constructor(
+  public constructor(
     public naziv: string,
     public id?: number
   ) {}
