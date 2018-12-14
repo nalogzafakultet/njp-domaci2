@@ -28,18 +28,17 @@ export class AddProizvodComponent implements OnInit {
       });
   }
 
-  onChange(event: Event) {
-    if (!event.target) {
+  onChange(value: string) {
+    if (!value) {
       return;
     }
-    const val = event.target.value;
-    if (!val) {
+    if (!value) {
       this.errorText = 'Popunite naziv';
       this.buttonEnabled = false;
       return;
     }
 
-    this.filtrirani = this.prozvodi.filter(proizvod => proizvod.naziv.toLowerCase() === val.toLowerCase());
+    this.filtrirani = this.prozvodi.filter(proizvod => proizvod.naziv.toLowerCase() === value.toLowerCase());
     if (this.filtrirani.length !== 0) {
       this.errorText = 'Proizvod sa takvim imenom vec postoji!';
       this.buttonEnabled = false;
