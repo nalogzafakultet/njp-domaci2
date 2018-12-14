@@ -15,7 +15,7 @@ export class SearchRecipeComponent implements OnInit {
   private izabranaOpcija = 'nista';
   private searchName: string;
   private sviProizvodi: Proizvod[] = [];
-  izabraniProizvodi: Proizvod[] = [];
+  private izabraniProizvodi: Proizvod[] = [];
 
   constructor(private receptService: RecipeService,
               private proizvodiService: ProizvodiService) { }
