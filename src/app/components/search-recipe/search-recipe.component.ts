@@ -50,7 +50,7 @@ export class SearchRecipeComponent implements OnInit {
     this.receptService.searchReceptByProizvodi(searchProizvodi)
       .subscribe(recepti => this.cachedRecepti = recepti);
   }
-  izaberiProizvod(proizvod: Proizvod[]) {
+  izaberiProizvod(proizvod: Proizvod) {
     const index: number = this.sviProizvodi.indexOf(proizvod);
     this.sviProizvodi.splice(index, 1);
     this.izabraniProizvodi.push(proizvod);
