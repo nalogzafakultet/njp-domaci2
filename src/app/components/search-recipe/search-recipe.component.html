@@ -1,0 +1,62 @@
+<div class="container">
+
+  <h3>Pretraga recepata</h3>
+
+  <div class="row">
+
+    <div class="col-md-6">
+
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Pretraga po:</label>
+      </div>
+      <select class="custom-select" id="inputGroupSelect01" (change)="handleSelect($event.target.value)">
+        <option selected value="nista">Izaberite opciju</option>
+        <option value="proizvodi">Proizvodima</option>
+        <option value="naziv">Nazivu</option>
+      </select>
+    </div>
+
+    <div class="offset-2 col-md-4" *ngIf="izabranaOpcija !== 'nista'">
+      <h4>Rezultati pretrage:</h4>
+      <ul class="list-group">
+        <li *ngFor="let recept of cachedRecepti" class="list-group-item">
+          {{recept.naziv}}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row mt-lg-3" *ngIf="izabranaOpcija === 'proizvodi'">
+    <div class="col-md-3">
+      <h4>Dostupni proizvodi</h4>
+      <ul class="list-group">
+        <li *ngFor="let proizvod of sviProizvodi" class="list-group-item list-group-item-primary" (click)="izaberiProizvod(proizvod)">{{proizvod.naziv}}</li>
+      </ul>
+    </div>
+
+    <div class="offset-1 col-md-3">
+      <h4>Izabrani proizvodi</h4>
+      <ul class="list-group">
+        <li *ngFor="let proizvod of izabraniProizvodi" class="list-group-item list-group-item-success" (click)="obrisiProizvod(proizvod)">{{proizvod.naziv}}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row mt-lg-3">
+
+    <div class="form-group">
+      <button class="btn btn-primary" (click)="searchByProizvodi(izabraniProizvodi)">Search</button>
+    </div>
+  </div>
+
+
+  <div *ngIf="izabranaOpcija === 'naziv'" class="row">
+    <div class="col-md-5">
+      <div class="form-group">
+        <label for="searchBar"><b>Searchz</b></label>
+        <input type="text" class="form-control" id="searchBar" placeholder="Naziv recepta" [(ngModel)]="searchName">
+        <button class="btn btn-outline-success" (click)="searchByName(searchName)">Pretrazi</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -14,6 +14,8 @@ import { RecipeDetailsComponent } from './components/recipe-details/recipe-detai
 import { FormsModule } from '@angular/forms';
 import { ProizvodiService } from './services/proizvodi.service';
 import { AddProizvodComponent } from './components/add-proizvod/add-proizvod.component';
+import { SearchRecipeComponent } from './components/search-recipe/search-recipe.component';
+import { SearchProizvodComponent } from './components/search-proizvod/search-proizvod.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { AddProizvodComponent } from './components/add-proizvod/add-proizvod.com
     HomeComponent,
     AddRecipeComponent,
     RecipeDetailsComponent,
-    AddProizvodComponent
+    AddProizvodComponent,
+    SearchRecipeComponent,
+    SearchProizvodComponent
   ],
   imports: [
     BrowserModule,

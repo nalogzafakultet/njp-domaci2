@@ -1,3 +1,36 @@
-<p>
-  add-proizvod works!
-</p>
+<div class="container">
+
+  <h2>Add a new PROIZVOD</h2>
+
+  <div class="row">
+
+    <div class="form-wrapper col-md-6">
+
+      <div class="form-group">
+        <label for="naziv">Naziv:</label>
+        <input type="text" class="form-control" id="naziv" placeholder="Unesite naziv" [(ngModel)]="naziv" (input)="onChange($event)">
+      </div>
+
+      <div class="form-group">
+        <small class="text-danger">
+          {{errorText}}
+        </small>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-outline-success" (click)="saveProizvod()" [disabled]="!buttonEnabled">Save</button>
+      </div>
+
+    </div>
+
+    <div class="offset-2 col-md-4">
+      <h4>Trenutni proizvodi:</h4>
+      <ul class="list-group">
+        <li *ngFor="let proizvod of prozvodi" class="list-group-item">
+          {{proizvod.naziv}}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
