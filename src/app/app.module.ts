@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +16,9 @@ import { ProizvodiService } from './services/proizvodi.service';
 import { AddProizvodComponent } from './components/add-proizvod/add-proizvod.component';
 import { SearchRecipeComponent } from './components/search-recipe/search-recipe.component';
 import { SearchProizvodComponent } from './components/search-proizvod/search-proizvod.component';
+import { LoginComponent } from './components/login/login.component';
+import {AuthInterceptor} from './services/auth.interceptor';
+import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({
@@ -29,7 +32,9 @@ import { SearchProizvodComponent } from './components/search-proizvod/search-pro
     RecipeDetailsComponent,
     AddProizvodComponent,
     SearchRecipeComponent,
-    SearchProizvodComponent
+    SearchProizvodComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,12 @@ import { SearchProizvodComponent } from './components/search-proizvod/search-pro
   ],
   providers: [
     RecipeService,
-    ProizvodiService
+    ProizvodiService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
