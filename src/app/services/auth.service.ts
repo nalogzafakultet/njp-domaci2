@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse} from '@angular/common/http';
-import {AUTH_LOGIN} from '../api/api.routes';
+import {AUTH_LOGIN, REGISTER_USER_URL} from '../api/api.routes';
 import {User} from '../model/user.model';
 import {map} from 'rxjs/operators';
 
@@ -23,4 +23,11 @@ export class AuthService {
     return !!token;
   }
 
+  register(username: string, password: string) {
+    return this.http.post(REGISTER_USER_URL, {username, password});
+  }
+
+  logout() {
+    localStorage.removeItem('id_token');
+  }
 }

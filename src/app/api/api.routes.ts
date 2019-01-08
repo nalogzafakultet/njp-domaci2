@@ -10,3 +10,4 @@ export const POST_NEW_PROIZVOD_URL = API_PREFIX_URL + 'proizvodi';
 export const GET_REMAINING_PROIZVODI = API_PREFIX_URL + 'proizvodi/diff';
 
 export const AUTH_LOGIN = API_PREFIX_URL + "login";
+export const REGISTER_USER_URL = API_PREFIX_URL + "user";
